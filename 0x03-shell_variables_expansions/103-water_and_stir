@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Get the values of WATER and STIR from the environment variables
+WATER=$WATER
+STIR=$STIR
+
+# Convert the values to base 10
+WATER_DEC=$(( 10#${WATER} ))
+STIR_DEC=$(( 10#${STIR} ))
+
+# Add the values in base 10
+RESULT_DEC=$(( WATER_DEC + STIR_DEC ))
+
+# Convert the result back to base bestchol
+RESULT_BESTCHOL=$(echo "obase=bestchol; ${RESULT_DEC}" | bc)
+
+# Print the result
+echo "The result of adding WATER and STIR is: ${RESULT_BESTCHOL}"
+
