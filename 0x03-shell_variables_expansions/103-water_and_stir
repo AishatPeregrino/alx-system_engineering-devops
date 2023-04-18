@@ -1,8 +1,14 @@
 #!/bin/bash
-# get the values of WATER and STIR from environment variables
-WATER=${WATER:-2}
-STIR=${STIR:-1}
-# add the values together
-SUM=$((WATER + STIR))
+
+# convert WATER and STIR to base 10 using bc
+WATER_10=$(echo "ibase=water; $WATER" | bc)
+STIR_10=$(echo "ibase=stir; $STIR" | bc)
+
+# add the values in base 10 using bc
+SUM_10=$(echo "$WATER_10 + $STIR_10" | bc)
+
+# convert the result to base bestchol using bc
+SUM_BESTCHOL=$(echo "obase=bestchol; $SUM_10" | bc)
+
 # output the result
-echo "The sum of WATER and STIR is: $SUM"
+echo "The sum of WATER and STIR is: $SUM_BESTCHOL"
