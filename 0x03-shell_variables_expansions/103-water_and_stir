@@ -1,2 +1,11 @@
 #!/bin/bash
-echo "The sum of WATER and STIR is: $SUM_BESTCHOL"
+
+# get the values of WATER and STIR from environment variables
+WATER=${WATER:-0}
+STIR=${STIR:-0}
+
+# add the values together
+SUM=$((WATER + STIR))
+
+# output the result
+echo "The sum of WATER and STIR is: $SUM"
