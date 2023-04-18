@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # get the values of WATER and STIR from environment variables
-WATER=${WATER:-0}
-STIR=${STIR:-0}
+WATER=${WATER:-2}
+STIR=${STIR:-1}
 
 # add the values together
 SUM=$((WATER + STIR))
